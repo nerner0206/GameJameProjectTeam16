@@ -97,9 +97,11 @@ public class move_japanese_char : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        if(col.gameObject.name=="DeathZone")
+        if (col.gameObject.CompareTag("Death"))
+        {
             rb2d.velocity = new Vector2(0, 0);
-            transform.position = GameObject.Find("Spawn").transform.position + new Vector3(offset,0,0);
+            transform.position = GameObject.Find("Spawn").transform.position + new Vector3(offset, 0, 0);
+        }
     }
 
 }

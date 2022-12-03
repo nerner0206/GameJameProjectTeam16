@@ -81,6 +81,15 @@ public float moveSpeed;
         }
     }
 
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("BreakBlock"))
+        {
+            Debug.Log(true);
+            if(Input.GetKey(KeyCode.Q)) Destroy(collision.gameObject);
+        }
+    }
+
     public void OnCollisionExit2D(Collision2D col)
     {
         if (col.gameObject.name.Equals ("Platform"))
@@ -89,8 +98,10 @@ public float moveSpeed;
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        if(col.gameObject.name=="DeathZone")
+        if (col.gameObject.CompareTag("Death"))
+        {
             rb2d.velocity = new Vector2(0, 0);
-            transform.position = GameObject.Find("Spawn").transform.position + new Vector3(offset,0,0);
+            transform.position = GameObject.Find("Spawn").transform.position + new Vector3(offset, 0, 0);
+        }
     }
 }
