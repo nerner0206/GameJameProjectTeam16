@@ -17,6 +17,7 @@ public float moveSpeed;
     public Animator animatorB;
     [SerializeField] private int offset = 30;
 
+    public bool haveKey = false;
 
     // Start is called before the first frame update
     void Start()
@@ -103,5 +104,16 @@ public float moveSpeed;
             rb2d.velocity = new Vector2(0, 0);
             transform.position = GameObject.Find("Spawn").transform.position + new Vector3(offset, 0, 0);
         }
+
+        if (col.gameObject.CompareTag("Key"))
+        {
+            haveKey = true;
+            Destroy(col.gameObject);
+        }
+    }
+
+    public bool GetHaveKey()
+    {
+        return haveKey;
     }
 }
