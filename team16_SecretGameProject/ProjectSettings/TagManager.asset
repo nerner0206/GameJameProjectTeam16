@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Platform
   - BreakBlock
+  - Death
   layers:
   - Default
   - TransparentFX
